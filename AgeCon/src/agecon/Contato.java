@@ -20,7 +20,7 @@ public class Contato {
         this.email = email;
     }
 
-    // Getters e Setters
+
     public String getNome() {
         return nome;
     }
@@ -45,7 +45,7 @@ public class Contato {
         this.email = email;
     }
 
-    // Método para exibir as informações do contato
+  
     @Override
     public String toString() {
         return "Nome: " + nome + "\nTelefone: " + telefone + "\nEmail: " + email;

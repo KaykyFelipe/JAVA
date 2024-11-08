@@ -21,17 +21,16 @@ public class Agenda {
         this.contatos = new ArrayList<>();
     }
 
-    // Método para adicionar um novo contato
+
     public void adicionarContato(Contato contato) {
         contatos.add(contato);
     }
 
-    // Método para listar os contatos (agora retorna uma lista de contatos)
+
     public List<Contato> listarContatos() {
-        return contatos; // Retorna a lista de contatos
+        return contatos; 
     }
 
-    // Método para atualizar um contato
     public boolean atualizarContato(String nome, String novoTelefone, String novoEmail) {
         for (Contato contato : contatos) {
             if (contato.getNome().equalsIgnoreCase(nome)) {
@@ -43,7 +42,7 @@ public class Agenda {
         return false;
     }
 
-    // Método para remover um contato
+
     public boolean removerContato(String nome) {
         for (Contato contato : contatos) {
             if (contato.getNome().equalsIgnoreCase(nome)) {

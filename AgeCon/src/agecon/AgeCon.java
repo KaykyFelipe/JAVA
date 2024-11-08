@@ -6,7 +6,7 @@ package agecon;
 
 /**
  *
- * @author felip
+ * @author kayky
  */
 import javax.swing.*;
 import java.awt.*;
@@ -19,15 +19,14 @@ import java.util.Scanner;
 public class AgeCon {
 
     public static void main(String[] args) {
-        // Menu inicial para escolher entre Console ou GUI
+        
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Escolha o modo de operação:");
         System.out.println("1 - Modo Console");
         System.out.println("2 - Modo GUI (Interface Gráfica)");
         System.out.print("Digite a opção (1 ou 2): ");
         int opcao = scanner.nextInt();
-        scanner.nextLine();  // Consumir o '\n' restante
+        scanner.nextLine();  
 
         if (opcao == 1) {
             iniciarModoConsole();
@@ -38,7 +37,6 @@ public class AgeCon {
         }
     }
 
-    // Função para iniciar o modo Console
     public static void iniciarModoConsole() {
         Agenda agenda = new Agenda();
         Scanner scanner = new Scanner(System.in);
@@ -52,11 +50,10 @@ public class AgeCon {
             System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
-            scanner.nextLine();  // Consumir o '\n'
+            scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
-                    // Adicionar Contato
                     System.out.print("Digite o nome do contato: ");
                     String nome = scanner.nextLine();
                     System.out.print("Digite o telefone do contato: ");
@@ -68,7 +65,7 @@ public class AgeCon {
                     System.out.println("Contato adicionado com sucesso!");
                     break;
                 case 2:
-                    // Listar Contatos
+                    
                     System.out.println("Lista de Contatos:");
                     List<Contato> contatos = agenda.listarContatos();
                     if (contatos != null && !contatos.isEmpty()) {
@@ -78,7 +75,7 @@ public class AgeCon {
                     }
                     break;
                 case 3:
-                    // Atualizar Contato
+                   
                     System.out.print("Digite o nome do contato que deseja atualizar: ");
                     String nomeParaAtualizar = scanner.nextLine();
                     System.out.print("Digite o novo telefone: ");
@@ -92,7 +89,7 @@ public class AgeCon {
                     }
                     break;
                 case 4:
-                    // Remover Contato
+                    
                     System.out.print("Digite o nome do contato que deseja remover: ");
                     String nomeParaRemover = scanner.nextLine();
                     if (agenda.removerContato(nomeParaRemover)) {
@@ -102,7 +99,7 @@ public class AgeCon {
                     }
                     break;
                 case 5:
-                    // Sair
+                    
                     System.out.println("Saindo...");
                     return;
                 default:
@@ -111,25 +108,24 @@ public class AgeCon {
         }
     }
 
-    // Função para iniciar o modo GUI (Swing)
+
     public static void iniciarModoGUI() {
         Agenda agenda = new Agenda();
 
-        // Configuração da janela
+     
         JFrame frame = new JFrame("Agenda de Contatos");
         frame.setSize(600, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Painel para as ações
+  
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(7, 2, 10, 10));
 
-        // Campos de texto para inserção de dados
         JTextField nomeField = new JTextField();
         JTextField telefoneField = new JTextField();
         JTextField emailField = new JTextField();
 
-        // Labels
+     
         panel.add(new JLabel("Nome:"));
         panel.add(nomeField);
         panel.add(new JLabel("Telefone:"));
@@ -137,19 +133,18 @@ public class AgeCon {
         panel.add(new JLabel("Email:"));
         panel.add(emailField);
 
-        // Botões de ação
         JButton adicionarButton = new JButton("Adicionar Contato");
         JButton listarButton = new JButton("Listar Contatos");
         JButton atualizarButton = new JButton("Atualizar Contato");
         JButton removerButton = new JButton("Remover Contato");
 
-        // Área de texto para mostrar a lista de contatos
+      
         JTextArea listaArea = new JTextArea();
         listaArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(listaArea);
         scrollPane.setPreferredSize(new Dimension(500, 150));
 
-        // Adicionando os botões no painel
+     
         panel.add(adicionarButton);
         panel.add(listarButton);
         panel.add(atualizarButton);
@@ -157,11 +152,9 @@ public class AgeCon {
         panel.add(new JLabel("Lista de Contatos:"));
         panel.add(scrollPane);
 
-        // Adicionando o painel na janela
+ 
         frame.add(panel);
         frame.setVisible(true);
-
-        // Ação do botão "Adicionar Contato"
         adicionarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -178,7 +171,7 @@ public class AgeCon {
             }
         });
 
-        // Ação do botão "Listar Contatos"
+     
         listarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -190,7 +183,6 @@ public class AgeCon {
             }
         });
 
-        // Ação do botão "Atualizar Contato"
         atualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -205,7 +197,6 @@ public class AgeCon {
             }
         });
 
-        // Ação do botão "Remover Contato"
         removerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
